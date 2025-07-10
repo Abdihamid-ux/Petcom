@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PetCom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">🐶 petcom</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="login-signup.html">login</a></li>
+          <li><a href="#">Cart 🧺</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="intro">
+      <div class="intro-text">
+        <h1>Stylish & Safe Supplies for Your Pets</h1>
+        <p>Find the perfect gear for your furry friends.</p>
+        <a href="#" class="cta">Explore Now</a>
+      </div>
+      <div class="intro-img">
+        <img src="images/cute pet.jpg" alt="Cute Pets" />
+      </div>
+    </section>
+
+    <section class="shop">
+      <h2>Best Sellers</h2>
+      <div class="product-list">
+        <div class="item">
+          <img src="images/Colorful Pet Leash.png" alt="Colorful pet leash" />
+          <h3>Colorful Pet Leash</h3>
+          <span>$12.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/cat tree.jpg" alt="Cat Tower" />
+          <h3>Cat Tower Tree</h3>
+          <span>$49.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/dog biscuit.jpg" alt="Dog biscuits" />
+          <h3>Dog Biscuits</h3>
+          <span>$7.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/pet brush.jpg" alt="Pet Brush" />
+          <h3>Gentle Pet Brush</h3>
+          <span>$10.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/pet bowls.jpg" alt="Pet Bowls" />
+          <h3>Stainless Steel Bowls</h3>
+          <span>$15.49</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/pet carrier.jpg" alt="Pet Carrier" />
+          <h3>Soft Pet Carrier</h3>
+          <span>$29.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/pet shampoo.jpg" alt="Pet Shampoo" />
+          <h3>Natural Pet Shampoo</h3>
+          <span>$8.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/Cozy Dog Sweater.jpg" alt="Dog Sweater" />
+          <h3>Cozy Dog Sweater</h3>
+          <span>$19.99</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/Cat Litter.jpg" alt="Cat Litter" />
+          <h3>Clumping Cat Litter</h3>
+          <span>$11.49</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="item">
+          <img src="images/Pet Bed.jpg" alt="Pet Bed" />
+          <h3>Fluffy Pet Bed</h3>
+          <span>$35.00</span>
+          <a href="buy.html" class="buy-btn">Buy Now</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 PetCom • All love and paws reserved</p>
+    </footer>
+    <script>
+      const buyButtons = document.querySelectorAll(".buy-btn");
+
+      buyButtons.forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const item = this.closest(".item");
+          const image = item.querySelector("img").getAttribute("src");
+          const title = item.querySelector("h3").innerText;
+          const price = item
+            .querySelector("span")
+            .innerText.replace("$", "")
+            .trim();
+
+          const product = {
+            image,
+            title,
+            price,
+          };
+
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+          window.location.href = "buy.html";
+        });
+      });
+    </script>
+  </body>
+</html>
